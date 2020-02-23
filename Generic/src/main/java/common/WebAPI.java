@@ -96,6 +96,7 @@ public class    WebAPI {
         calendar.setTimeInMillis(millis);
         return calendar.getTime();
     }
+
     //Browser SetUp
     public static WebDriver driver = null;
     public String browserstack_username = "SanuwarRashid";
@@ -124,16 +125,15 @@ public class    WebAPI {
         driver.manage().window().maximize();
     }
 
-    public WebDriver getLocalDriver(   @Optional("mac")    String OS, String browserName) {
+    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("mac")) {
-                System.setProperty("webdriver.chrome.driver", "/Users/sanuwar/Team2_WebAutomationFrameWork/Generic/BrowserDriver/mac/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "../Generic/BrowserDriver/mac/chromedriver");
             } else if (OS.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/BrowserDriver/windows/chromedriver.exe");
             }
             driver = new ChromeDriver();
-        }
-        else if (browserName.equalsIgnoreCase("chrome-options")) {
+        } else if (browserName.equalsIgnoreCase("chrome-options")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
             if (OS.equalsIgnoreCase("OS X")) {
@@ -183,7 +183,7 @@ public class    WebAPI {
         driver.quit();
     }
 
-    public void clickOnElement(String locator){
+    public void clickOnElement(String locator) {
         driver.findElement(By.xpath(locator)).click();
     }
 
@@ -254,7 +254,7 @@ public class    WebAPI {
         driver.findElement(By.id(locator)).clear();
     }
 
-    public void navigateBack() {
+    public static void navigateBack() {
         driver.navigate().back();
     }
 
@@ -369,9 +369,9 @@ public class    WebAPI {
 
     public static List<WebElement> getListOfWebElementsByXpath(String locator) {
         List<WebElement> list = new ArrayList<>();
-        List<String > element =new ArrayList<>();
+        List<String> element = new ArrayList<>();
         list = driver.findElements(By.xpath(locator));
-        for (int i=0; i<list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             element.add(list.get(i).getText());
         }
         System.out.println("+++++++++++++++++++");
@@ -590,12 +590,11 @@ public class    WebAPI {
     public void clearInputBox(WebElement webElement) {
         webElement.clear();
     }
+
     public String getTextByWebElement(WebElement webElement) {
         String text = webElement.getText();
         return text;
     }
-
-
 
 
     public void resizeElement(String frameLocator, String Snippet) {
@@ -615,22 +614,22 @@ public class    WebAPI {
                 System.out.println("Element was not displayed to drag");
             }
         } catch (StaleElementReferenceException e) {
-            System.out.println("Element with " + elementToResize + "is not attached to the page document "	+ e.getStackTrace());
+            System.out.println("Element with " + elementToResize + "is not attached to the page document " + e.getStackTrace());
         } catch (NoSuchElementException e) {
             System.out.println("Element " + elementToResize + " was not found in DOM " + e.getStackTrace());
         } catch (Exception e) {
-            System.out.println("Unable to resize" + elementToResize + " - "	+ e.getStackTrace());
+            System.out.println("Unable to resize" + elementToResize + " - " + e.getStackTrace());
         }
     }
 
     public void selectableFromList(String locator, String listLocator) throws InterruptedException {
-        List<WebElement> dropdown_items= new ArrayList<>();
+        List<WebElement> dropdown_items = new ArrayList<>();
         dropdown_items = driver.findElements(By.xpath(locator));
         sleepFor(2);
     }
 
 
-    public void radioButton(String radioButton1, String radioButton2, String radioButton3){
+    public void radioButton(String radioButton1, String radioButton2, String radioButton3) {
         WebElement radio1 = driver.findElement(By.xpath(radioButton1));
         WebElement radio2 = driver.findElement(By.xpath(radioButton2));
         WebElement radio3 = driver.findElement(By.xpath(radioButton3));
@@ -640,52 +639,49 @@ public class    WebAPI {
         radio3.click();
     }
 
-    public void checkBox(String selectCheckBox){
+    public void checkBox(String selectCheckBox) {
         WebElement checkBoxSelect = driver.findElement(By.xpath(selectCheckBox));
-        for (int i= 0; i <2; i++){
+        for (int i = 0; i < 2; i++) {
             checkBoxSelect.click();
             System.out.println(checkBoxSelect.isDisplayed());
         }
     }
 
-    public void selectFromDropDownList(String locator){
+    public void selectFromDropDownList(String locator) {
         Select selectFromDrop = new Select(driver.findElement(By.xpath(locator)));
         selectFromDrop.selectByVisibleText("xxxxx");
     }
 
-    public void dragAndDrop(String dragFrom, String dropTo){
+    public void dragAndDrop(String dragFrom, String dropTo) {
 
-        WebElement From=driver.findElement(By.xpath(dragFrom));
+        WebElement From = driver.findElement(By.xpath(dragFrom));
 
-        WebElement To=driver.findElement(By.xpath(dropTo));
+        WebElement To = driver.findElement(By.xpath(dropTo));
 
-        Actions act=new Actions(driver);
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+        Actions act = new Actions(driver);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //Dragged and dropped.
         act.dragAndDrop(From, To).build().perform();
 
     }
 
-    public void calender(String dayLocator, String monthLocator){
-    List<WebElement> allDates=driver.findElements(By.xpath(dayLocator));
-		for(WebElement day:allDates)
-		{
-        String date=day.getText();
+    public void calender(String dayLocator, String monthLocator) {
+        List<WebElement> allDates = driver.findElements(By.xpath(dayLocator));
+        for (WebElement day : allDates) {
+            String date = day.getText();
 
-        if(date.equalsIgnoreCase("28"))
-        {
-            day.click();
-            break;
+            if (date.equalsIgnoreCase("28")) {
+                day.click();
+                break;
+            }
+
         }
+        List<WebElement> allMonths = driver.findElements(By.xpath(monthLocator));
+        for (WebElement month : allMonths) {
+            String selectMonth = month.getText();
 
-    }
-        List<WebElement> allMonths=driver.findElements(By.xpath(monthLocator));
-		for (WebElement month:allMonths){
-		    String selectMonth = month.getText();
-
-		    if (selectMonth.equalsIgnoreCase ("July"))
-            {
+            if (selectMonth.equalsIgnoreCase("July")) {
                 month.click();
                 break;
             }
@@ -694,57 +690,68 @@ public class    WebAPI {
     }
 
     //This is only for Facebook
-    public void calenderDays(String dayLocator){
+    public void calenderDays(String dayLocator) {
 
         WebElement days = driver.findElement(By.xpath(dayLocator));
-        Select d1= new Select (days);
+        Select d1 = new Select(days);
         d1.selectByValue("2");
         System.out.println(days.getAttribute("value"));
 
         List<WebElement> dd = d1.getOptions();
         System.out.println(dd.size());
-        for(int i=0; i<dd.size();i++){
-        String txt = dd.get(i).getText();
-            System.out.println(txt);}
+        for (int i = 0; i < dd.size(); i++) {
+            String txt = dd.get(i).getText();
+            System.out.println(txt);
+        }
     }
 
-    public void dropDown(String locator){
+    public void dropDown(String locator) {
         Select items = new Select(driver.findElement(By.xpath(locator)));
         items.selectByVisibleText("Slower");
         items.selectByIndex(1);
-        }
+    }
 
-        public void newWindows(){
+    public void newWindows() {
         String MainWindow = driver.getWindowHandle();
 
         Set<String> s1 = driver.getWindowHandles();
-        Iterator<String> i1=s1.iterator();
+        Iterator<String> i1 = s1.iterator();
 
-        while(i1.hasNext()){
+        while (i1.hasNext()) {
             String ChildWindow = i1.next();
 
-            if (!MainWindow.equalsIgnoreCase((ChildWindow))){
+            if (!MainWindow.equalsIgnoreCase((ChildWindow))) {
 
                 driver.switchTo().window(ChildWindow);
             }
         }
-        }
+    }
 
-        public void rightClickMouse(String locator){
-            Actions actions = new Actions(driver);
-            WebElement elementLocator = driver.findElement(By.xpath(locator));
-            actions.contextClick(elementLocator).perform();
-        }
-
-
-        // For Scroll down or up.
-    public static void scrollUpDown(int scroll){
-        JavascriptExecutor Scroll =  (JavascriptExecutor) driver;
-        Scroll.executeScript("window.scrollBy(0,"+scroll+")");
+    public void rightClickMouse(String locator) {
+        Actions actions = new Actions(driver);
+        WebElement elementLocator = driver.findElement(By.xpath(locator));
+        actions.contextClick(elementLocator).perform();
     }
 
 
+    // For Scroll down or up.
+    public static void scrollUpDown(int scroll) {
+        JavascriptExecutor Scroll = (JavascriptExecutor) driver;
+        Scroll.executeScript("window.scrollBy(0," + scroll + ")");
+    }
 
+    //Select From single Menu
+    public static void selectFromDropByValue(String locator1, String locator2) {
+        WebElement element = driver.findElement(By.xpath(locator1));
+        Select drpWrd = new Select(element);
+        drpWrd.selectByValue(locator2);
+    }
 
+    //Select From Multiple Menu
+    public static void selectFromMultipleDrop(String locator1, String locator2, String locator3) {
+        WebElement element = driver.findElement(By.xpath(locator1));
+        Select drpWrd = new Select(element);
+        drpWrd.selectByValue(locator2);
+        drpWrd.selectByValue(locator3);
+    }
 }
-

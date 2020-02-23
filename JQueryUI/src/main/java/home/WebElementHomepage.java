@@ -30,6 +30,8 @@ public class WebElementHomepage extends WebAPI {
     public static final String xPathDialogiFrame = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/iframe[1]";
     public static final String xPathDialogPopUp = "/html[1]/body[1]/div[1]";
     public static final String xPathDialogPopUpClose = "//span[@class='ui-button-icon ui-icon ui-icon-closethick']";
+    public static final String xPathDialogPopUpFrame = "//div[@class='ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable']";
+
 
     public static final String xPathMouseHoverContributeTab = "//a[contains(text(),'Contribute')]";
     public static final String xPathMouseHoverContributeCLASelect = "//a[contains(text(),'CLA')]";

@@ -24,9 +24,10 @@ public class TestHomepage extends Homepage {
         clickOnElement(xPathPracticeSwitchWindowTab);
         sleepFor(2);
         newWindows();
+        clickOnElement(xPathPracticeSwitchWindowSelectFromNewWindow);
     }
 
-    @Test
+    //@Test
     public void testNewTabOpen(){
         getInItElements();
         clickOnElement(xPathPracticeOpenNewTab);
@@ -34,7 +35,7 @@ public class TestHomepage extends Homepage {
         clickOnElement(xPathPracticeFromTabSelectSomething);
     }
 
-    @Test
+    //@Test
     public void testAlertHandlingAccept() throws InterruptedException {
         getInItElements();
         clickOnElement(xPathPracticeAlertConfirmButton);
@@ -42,7 +43,7 @@ public class TestHomepage extends Homepage {
         okAlert();
     }
 
-    @Test
+    //@Test
     public void testAlertHandlingDismiss() throws InterruptedException {
         getInItElements();
         clickOnElement(xPathPracticeAlertConfirmButton);
@@ -50,13 +51,28 @@ public class TestHomepage extends Homepage {
         cancelAlert();
     }
 
-    @Test
+    //@Test
     public void getTable() throws InterruptedException {
         getInItElements();
         sleepFor(2);
         scrollUpDown(2500);
         getListOfWebElementsByXpath(xPathPracticeWebElemetTable);
         sleepFor(2);
+    }
 
+    @Test
+    public void testSelectFromDropDown() throws InterruptedException {
+        getInItElements();
+        sleepFor(2);
+        selectFromDropByValue(webElemetSelectButton, "Benz");
+        sleepFor(3);
+    }
+
+    //@Test
+    public void clickOnSelectMultiButton() throws InterruptedException {
+        getInItElements();
+        sleepFor(2);
+        selectFromMultipleDrop(webElemetSelectMultiButton, "apple", "orange");
+        sleepFor(3);
     }
 }

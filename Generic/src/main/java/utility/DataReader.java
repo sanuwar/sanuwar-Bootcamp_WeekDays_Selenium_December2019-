@@ -13,13 +13,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class DataReader {
-    HSSFWorkbook wb = null;
-    HSSFSheet sheet = null;
+    static HSSFWorkbook wb = null;
+    static HSSFSheet sheet = null;
     Cell cell = null;
     FileOutputStream fio = null;
-    int numberOfRows, numberOfCol, rowNum;
+    static int numberOfRows;
+    static int numberOfCol;
+    int rowNum;
 
-    public String[][] fileReader1(String path,int sheetIndex) throws IOException {
+    public static String[][] fileReader1(String path, int sheetIndex) throws IOException {
         String[][] data = {};
         File file = new File(path);
         FileInputStream fis = new FileInputStream(file);
@@ -61,7 +63,7 @@ public class DataReader {
         return data;
     }
 
-    public String getCellValue(HSSFCell cell) {
+    public static String getCellValue(HSSFCell cell) {
         Object value = null;
 
         int dataType = cell.getCellType();

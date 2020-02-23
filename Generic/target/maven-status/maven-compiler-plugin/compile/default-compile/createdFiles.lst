@@ -1,4 +1,5 @@
 reporting/ExtentManager.class
+databases/sqlTable.class
 common/WebAPI.class
 databases/ConnectToMongoDB.class
 databases/Student.class

@@ -65,15 +65,16 @@ public class TestHomepage extends Homepage {
         Assert.assertTrue(driver.findElement(By.xpath(xPathDialogPopUp)).isDisplayed());
 
     }
-
+//FAILED
     @Test
     public void testIsPopUpClosed() {
         getInItElements();
         clickOnElement(xPathDialogTab);
         iframeHandle(dialogiFrame);
-        clickOnElement("/html[1]/body[1]/div[1]/div[1]");
-        driver.switchTo().alert().accept();
-        //clickOnElement(xPathDialogPopUpClose);
+        iframeHandle(dialogPopUpFrame);
+        //clickOnElement("/html[1]/body[1]/div[1]/div[1]");
+        //driver.switchTo().alert().accept();
+        clickOnElement(xPathDialogPopUpClose);
     }
 
     @Test
@@ -93,7 +94,7 @@ public class TestHomepage extends Homepage {
             System.out.println("We are NOT in JQuery homepage");
         }
     }
-
+        //failed
     @Test
     public void testCalenderDatePicker(){
         getInItElements();
@@ -103,13 +104,13 @@ public class TestHomepage extends Homepage {
         calenderDays(xPathJQueryCalenderbox);
     }
     //This is for Facebook
-    @Test
+    //@Test
     public void testCalenderDayFacebook(){
         getInItElements();
         clickOnElement(xPathFacebookCreateAccount);
         calenderDays(xPathFacebookSelectDay);
     }
-
+//failed
    @Test
     public void testDropDown(){
         getInItElements();

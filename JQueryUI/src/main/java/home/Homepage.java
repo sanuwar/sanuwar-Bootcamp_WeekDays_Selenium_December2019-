@@ -48,4 +48,11 @@ public class Homepage extends WebElementHomepage {
     public static WebElement getPracticeOpenNewTab(){
         return practiceOpenNewTab;
     }
+
+    @FindBy(how = How.XPATH, using = xPathDialogPopUpFrame)
+    public static WebElement dialogPopUpFrame;
+
+    public static WebElement getDialogPopUpFrame(){
+        return dialogPopUpFrame;
+    }
 }

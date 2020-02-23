@@ -13,6 +13,7 @@
         <module>Practice_Kode_It</module>
         <module>Generic</module>
         <module>RestAPI</module>
+        <module>Google</module>
 
     </modules>
 
@@ -229,13 +230,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                 <forkCount>0</forkCount>
-<!--                    <includes>-->
-<!--                        <include>PracticeTestRunner.xml</include>-->
-<!--                    </includes>-->
+                                      <includes>
+                        <include>PracticeTestRunner.xml</include>
+                    </includes>
 
                     <suiteXmlFiles>
                         <suiteXmlFiles>target/test-classes/PracticeTestRunner.xml</suiteXmlFiles>
-<!--                        <suiteXmlFiles>src/test/resources/JQueryTestRunner.xml</suiteXmlFiles>-->
+                        <suiteXmlFiles>src/test/resources/JQueryTestRunner.xml</suiteXmlFiles>
 
                     </suiteXmlFiles>
                 </configuration>
