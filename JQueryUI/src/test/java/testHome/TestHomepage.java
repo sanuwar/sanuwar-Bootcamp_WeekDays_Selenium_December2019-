@@ -33,7 +33,7 @@ public class TestHomepage extends Homepage {
         sleepFor(2);
     }
 
-   @Test
+   //@Test
     public void testCheckBox1() throws InterruptedException {
         getInItElements();
         clickOnElement(xPathCheckBoxTab);
@@ -61,7 +61,7 @@ public class TestHomepage extends Homepage {
     public void testIsPopUpDisplayed(){
         getInItElements();
         clickOnElement(xPathDialogTab);
-        //clickOnElement(xPathDialogiFrame);
+        clickOnElement(xPathDialogiFrame);
         Assert.assertTrue(driver.findElement(By.xpath(xPathDialogPopUp)).isDisplayed());
 
     }

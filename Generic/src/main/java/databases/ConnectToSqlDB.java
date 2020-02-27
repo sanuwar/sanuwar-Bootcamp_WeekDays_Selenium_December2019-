@@ -40,7 +40,7 @@ public class ConnectToSqlDB {
         return connect;
     }
 
-    public static List<String> readDataBase(String tableName, String columnName)throws Exception {
+    public List<String> readDataBase(String tableName, String columnName)throws Exception {
         List<String> data = new ArrayList<String>();
 
         try {
@@ -233,9 +233,10 @@ public class ConnectToSqlDB {
     }
 
     public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
-        List<User> list = readUserProfileFromSqlTable();
-        for(User user:list){
-            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
-        }
+//        List<User> list = readUserProfileFromSqlTable();
+//        for(User user:list){
+//            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+//        }
+    connectToSqlDatabase();
     }
 }

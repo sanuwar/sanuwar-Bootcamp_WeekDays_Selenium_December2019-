@@ -107,8 +107,8 @@ public class    WebAPI {
     @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
-                      @Optional("windows") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
-                              String browserVersion, @Optional("https://www.cnn.com") String url) throws IOException {
+                      @Optional("OS X") String os, @Optional("mac") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
+                              String browserVersion, @Optional("https://www.google.com") String url) throws IOException {
         //System.setProperty("webdriver.chrome.driver", "/Users/peoplentech/eclipse-workspace-March2018/SeleniumProject1/driver/chromedriver");
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -660,7 +660,6 @@ public class    WebAPI {
 
         Actions act = new Actions(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
         //Dragged and dropped.
         act.dragAndDrop(From, To).build().perform();
 

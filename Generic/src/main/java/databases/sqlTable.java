@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class sqlTable {
+
+    static ConnectToSqlDB db=new ConnectToSqlDB();
     public static List<String> searchElements(){
         List<String> elements=new ArrayList<String>();
         elements.add("Aamazon");
@@ -21,6 +23,6 @@ public class sqlTable {
         ConnectToSqlDB.insertDataFromArrayListToSqlTable(searchElements(),"sanuwar","search");
         //ConnectToSqlDB.insertDataFromArrayToSqlTable(name,"names","st");
 
-        System.out.println(ConnectToSqlDB.readDataBase("sanuwar","search"));
+        System.out.println(db.readDataBase("sanuwar","search"));
     }
 }

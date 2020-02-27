@@ -21,7 +21,7 @@ public class DataReader {
     static int numberOfCol;
     int rowNum;
 
-    public static String[][] fileReader1(String path, int sheetIndex) throws IOException {
+    public  String[][] fileReader1(String path, int sheetIndex) throws IOException {
         String[][] data = {};
         File file = new File(path);
         FileInputStream fis = new FileInputStream(file);

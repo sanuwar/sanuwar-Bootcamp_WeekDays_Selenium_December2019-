@@ -1,0 +1,8 @@
+TC001_GET_Request.class
+TC_007_GET_Request_Authorization.class
+TC002_POST_Request.class
+TC008_DDT_AddNewEmployees.class
+TC006_GET_ExtractValueOfEachNodeInJSON.class
+TC003_GET_Request.class
+TC004_GET_Request_PrintAllHeaders.class
+TC005_ValidatingJSONResponse.class
